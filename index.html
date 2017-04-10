@@ -112,7 +112,8 @@
         color: #fff;
         display: block;
         font-size: 18px;
-        font-weight: 800;
+        font-weight: 600;
+        letter-spacing: 1px;
         margin: 20px auto;
         padding: 10px 15px;
         transition: transform .1s;
@@ -122,11 +123,11 @@
       .button:hover {
         box-shadow: 4px 4px 12px rgba(0,0,0,.4);
         cursor: pointer;
-        transform: translate(-5px);
+        transform: translate(-2px, -5px);
       }
 
       .button:active {
-        transform: translate(5px);
+        transform: translate(2px, 2px);
       }
 
       label {
@@ -252,8 +253,8 @@
           I need help with:
         </label>
         <select name="reason" class="form-reason">
-          <option value="website">A Website</option>
-          <option value="branding">Branding or Logos</option>
+          <option value="a website">A Website</option>
+          <option value="branding or logos">Branding or Logos</option>
           <option value="social media">Social Media</option>
         </select>
         <button class="button send-button" type="submit">Send</button>
