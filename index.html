@@ -78,6 +78,16 @@
         font-size: 1em;
       }
 
+      h2 {
+        color: #1BAC68;
+        font-size: 2.4em;
+        margin-top: 0;
+      }
+
+      p {
+        font-size: 18px;
+      }
+
       form {
         margin-bottom: 0;
       }
@@ -164,7 +174,7 @@
         margin: 20px auto;
       }
 
-      .contact-form {
+      .contact-modal {
         background: #fff;
         box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
         left: 50%;
@@ -178,11 +188,35 @@
         width: 500px;
       }
 
-      .contact-form--visible {
+      .contact-modal--visible {
         display: block;
         opacity: 1;
         pointer-events: initial;
         transform: translate(-50%, -45%);
+      }
+
+      .contact-form {
+        transition: transition, .15s ease, opacity .15s ease;
+      }
+
+      .contact-form--hidden {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      .contact-message {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, 40%);
+        transition: transition, .15s ease, opacity .15s ease;
+        text-align: center;
+      }
+
+      .contact-message--hidden {
+        opacity: 0;
+        transform: translate(-50%, 100%);
+        pointer-events: none;
       }
 
       .close-button {
@@ -209,8 +243,8 @@
       <button class="button get-in-touch">Get in touch</button>
     </section>
 
-    <section class="contact-form">
-      <form action="https://formspree.io/tedwalleriii@gmail.com"
+    <section class="contact-modal">
+      <form class="contact-form" action="https://formspree.io/tedwalleriii@gmail.com"
       method="POST">
         <input type="text" class="form-name" placeholder="Name">
         <input type="email" class="form-email" placeholder="Email">
@@ -224,6 +258,11 @@
         </select>
         <button class="button send-button" type="submit">Send</button>
       </form>
+
+      <div class="contact-message contact-message--hidden">
+        <h2>Thank you!</h2>
+        <p>We'll be in touch soon.</p>
+      </div>
 
       <button class="close-button">X</button>
     </section>
@@ -241,20 +280,21 @@
       $('.send-button').on('click', function (event) {
         event.preventDefault();
 
-        hideForm();
+        // hideForm();
         sendMail();
+        showSuccess();
       });
 
       function showForm () {
-        $('.contact-form').addClass('contact-form--visible');
+        $('.contact-modal').addClass('contact-modal--visible');
       }
 
       function hideForm () {
-        $('.contact-form').removeClass('contact-form--visible');
+        $('.contact-modal').removeClass('contact-modal--visible');
       }
 
       function sendMail () {
-        var message = $('.form-name') + "(" + $('.form-email') + ") has requested help with " + $('.form-reason') + ".";
+        var message = $('.form-name').val() + "(" + $('.form-email').val() + ") has requested help with " + $('.form-reason').val() + ".";
         $.ajax({
             url: "https://formspree.io/tedwalleriii@gmail.com",
             method: "POST",
@@ -263,6 +303,11 @@
         }).done(function (data) {
           console.log(data);
         });
+      }
+
+      function showSuccess() {
+        $('.contact-form').addClass('contact-form--hidden');
+        $('.contact-message').removeClass('contact-message--hidden');
       }
     </script>
   </body>
