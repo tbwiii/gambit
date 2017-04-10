@@ -1,0 +1,269 @@
+<!--
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;                                                        ;
+;                                                        ;
+;                                                        ;
+;                                                        ;
+;                                                        ;
+;                   ;;;;;;;;;;;;;;;;;;                   ;
+;                   `;;;;;;;;;;;;;;;;;                   ;
+;                    ;;;;;;;;;;;;;;;;                    ;
+;                     ;;;;;;;;;;;;;;,                    ;
+;                     ;;;;;;;;;;;;;;                     ;
+;                      ;;;;;;;;;;;;`       `             ;
+;              ;;      .;;;;;;;;;;;      :;:             ;
+;              ;;;:     ;;;;;;;;;;     `;;;:             ;
+;              ;;;;;.    ;;;;;;;;;    ;;;;;:             ;
+;              ;;;;;;;   ;;;;;;;;   ;;;;;;;:             ;
+;              ;;;;;;;;;  ;;;;;;. ,;;;;;;;;:             ;
+;              ;;;;;;;;;;;;;;;;;;;;;;;;;;;;:             ;
+;              ;;;;;;;;;;;;;;;;;;;;;;;;;;;;:             ;
+;              ;;;;;;;;;;;;;;;;;;;;;;;;;;;;:             ;
+;              ;;;;;;;;;;;;;;;;;;;;;;;;;;;;:             ;
+;              ;;;;;;;;;;;;;;;;;;;;;;;;;;;;:             ;
+;              ;;;;;;;;;;;;;;;;;;;;;;;;;;;;:             ;
+;              ;;;;;;;;;;;;;;;;;;;;;;;;;;;;:             ;
+;              ;;;;;;;;;  ;;;;;;. :;;;;;;;;:             ;
+;              ;;;;;;;`  ;;;;;;;;   ;;;;;;;:             ;
+;              ;;;;;,    ;;;;;;;;,    ;;;;;:             ;
+;              ;;;;     ;;;;;;;;;;     ,;;;:             ;
+;              ;;      `;;;    ;;;;      ;;:             ;
+;              `       ;;;      ;;;        .             ;
+;                     :;;;      ,;;;                     ;
+;                     ;;;;      ,;;;.                    ;
+;               .....;;;;;      ;;;;;.....               ;
+;               ;;;;;;;;;;;    `;;;;;;;;;;               ;
+;      .:;;;;;;;;;;;;;;;;;;    ;;;;;;;;;;;;;;;;;;;,      ;
+;  .;;;;;;;;;;;;;;;;;;;;;;.     ;;;;;;;;;;;;;;;;;;;;;;;  ;
+;  :;;;;;;;;;;;;;;;;;;;;;;      ;;;;;;;;;;;;;;;;;;;;;;;  ;
+;   ;;;;;;;;;;;;:;;;;;;;;        ;;;;;;;;:;;;;;;;;;;;;:  ;
+;   ;;;;;;;;;;;   :;;;;;;        ,;;;;;;   ;;;;;;;;;;;   ;
+;   :;;;;;;;;;;    ;,.              `,:;   .;;;;;;;;;;   ;
+;    ;;;;;;;;;`                             ;;;;;;;;;,   ;
+;    ;;;;;;;;;:                            `;;;;;;;;;    ;
+;    ,;;;;;;;;;                            ;;;;;;;;;;    ;
+;     ;;;;;;;;;;                          :;;;;;;;;;,    ;
+;     ;;;;;;;;;;`                         ;;;;;;;;;;     ;
+;     .;;;;;;;;;;                        ;;;;;;;;;;;     ;
+;      ;;;;;;;;;;,                      `;;;;;;;;;;.     ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;                                                        ;
+;                                                        ;
+;    ;;;;;     ;;;;   ;;;;  .;;;  ;;;;;;;  ;;; ;;;;;;;;  ;
+;  `;;;;;;;    ;;;;   ;;;;, ;;;;  ;;;;;;;, ;;; ;;;;;;;;  ;
+;  ;;;   ;;,  `;;;;.  ;;;;; ;;;;  ;;,  ;;: ;;;    ;;;    ;
+;  ;;;        ;;:;;;  ;;;;; ;:;;  ;;;;;;;  ;;;    ;;;    ;
+;  ;;: ;;;;:  ;; `;;  ;;;;;.; ;;  ;;;;;;;  ;;;    ;;;    ;
+;  ;;; ``;;: ,;;;;;;, ;;;:;;; ;;  ;;,  ;;; ;;;    ;;;    ;
+;  ;;;;,;;;: ;;;;;;;; ;;; ;;; ;;  ;;;::;;; ;;;    ;;;    ;
+;   ;;;;;;;: ;;`  ,;; ;;; ;;, ;;  ;;;;;;;  ;;;    ;;;    ;
+;     .`                                                 ;
+;                                                        ;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+-->
+<html>
+  <head>
+    <title>Gambit</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700,800" rel="stylesheet">
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+
+    <style>
+      body {
+        background: #1BAC68;
+        font-family: 'Open Sans', sans-serif;
+        color: #555;
+        font-size: 1em;
+      }
+
+      form {
+        margin-bottom: 0;
+      }
+
+      input,
+      select,
+      textarea,
+      button {
+        display: block;
+        color: inherit;
+        font: inherit;
+        margin-bottom: 4.5em;
+        outline: 0;
+        padding: 10px 10px 10px 0;
+        width: 100%;
+      }
+
+      .button {
+        background: #1BAC68;
+        border: 0;
+        box-shadow: 2px 2px 8px rgba(0,0,0,.4);
+        color: #fff;
+        display: block;
+        font-size: 18px;
+        font-weight: 800;
+        margin: 20px auto;
+        padding: 10px 15px;
+        transition: transform .1s;
+        outline: none;
+      }
+
+      .button:hover {
+        box-shadow: 4px 4px 12px rgba(0,0,0,.4);
+        cursor: pointer;
+        transform: translate(-5px);
+      }
+
+      .button:active {
+        transform: translate(5px);
+      }
+
+      label {
+        display: block;
+        color: #888;
+        font-size: .7em;
+        margin-bottom: .5em;
+
+      }
+
+      input,
+      select {
+        background: none;
+        border: 0;
+        border-bottom: solid 1px #555;
+        border-radius: 0;
+      }
+
+      select {
+        background: url("images/down-arrow.png") right center no-repeat;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        position: relative;
+      }
+
+      .send-button {
+        margin: 2em 0 0
+      }
+
+      img {
+        max-width: 100%;
+      }
+
+      .logo-container {
+        position: absolute;
+        top: 45%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 400px;
+      }
+
+      .get-in-touch {
+        border: solid 6px #fff;
+        margin: 20px auto;
+      }
+
+      .contact-form {
+        background: #fff;
+        box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+        left: 50%;
+        opacity: 0;
+        padding: 3em;
+        position: absolute;
+        pointer-events: none;
+        top: 40%;
+        transform: translate(-50%, -30%);
+        transition: transition, .15s ease, opacity .15s ease;
+        width: 500px;
+      }
+
+      .contact-form--visible {
+        display: block;
+        opacity: 1;
+        pointer-events: initial;
+        transform: translate(-50%, -45%);
+      }
+
+      .close-button {
+        background: none;
+        border: 0;
+        display: inline-block;
+        font-weight: 800;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        width: auto;
+      }
+
+      .close-button:hover {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <section class="logo-container">
+
+      <img class="logo" src="images/logo-square-white.png" alt="">
+
+      <button class="button get-in-touch">Get in touch</button>
+    </section>
+
+    <section class="contact-form">
+      <form action="https://formspree.io/tedwalleriii@gmail.com"
+      method="POST">
+        <input type="text" class="form-name" placeholder="Name">
+        <input type="email" class="form-email" placeholder="Email">
+        <label for="">
+          I need help with:
+        </label>
+        <select name="reason" class="form-reason">
+          <option value="website">A Website</option>
+          <option value="branding">Branding or Logos</option>
+          <option value="social media">Social Media</option>
+        </select>
+        <button class="button send-button" type="submit">Send</button>
+      </form>
+
+      <button class="close-button">X</button>
+    </section>
+
+    <script>
+
+      $('.get-in-touch').on('click', function () {
+        showForm();
+      });
+
+      $('.close-button').on('click', function () {
+        hideForm()
+      });
+
+      $('.send-button').on('click', function (event) {
+        event.preventDefault();
+
+        hideForm();
+        sendMail();
+      });
+
+      function showForm () {
+        $('.contact-form').addClass('contact-form--visible');
+      }
+
+      function hideForm () {
+        $('.contact-form').removeClass('contact-form--visible');
+      }
+
+      function sendMail () {
+        var message = $('.form-name') + "(" + $('.form-email') + ") has requested help with " + $('.form-reason') + ".";
+        $.ajax({
+            url: "https://formspree.io/tedwalleriii@gmail.com",
+            method: "POST",
+            data: {message: message},
+            dataType: "json"
+        }).done(function (data) {
+          console.log(data);
+        });
+      }
+    </script>
+  </body>
+</html>
